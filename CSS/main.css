@@ -1,0 +1,29 @@
+#container {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    row-gap: 1px;
+    column-gap: 1px;
+    padding: 1px;
+
+    width: 700px;
+    height: 700px;
+
+    background-color: #1f1f1f;
+}
+
+.div-block {
+    background-color: white;
+}
+
+.div-block:hover {
+    border: 4px inset blue;
+}
+
+.fill {
+    background-color: red;
+}
+
+#reset-btn {
+    margin: 1rem;
+}
