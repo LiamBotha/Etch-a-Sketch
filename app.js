@@ -6,10 +6,16 @@ for(let i = 0; i < 16; i++) {
         let div = document.createElement("div");
 
         div.setAttribute("id", "block-" + idNum);
-        div.classList.add("div-block");
+        div.setAttribute("data-fill", 0);
+        div.classList.add("fill-0");
     
         div.addEventListener("mouseenter", event => {
-            event.target.classList.add("fill");
+
+            let fillVal = div.getAttribute("data-fill");
+            event.target.classList.remove("fill-" + fillVal)
+
+            div.setAttribute("data-fill", Math.min(parseInt(fillVal) + 1, 5));
+            event.target.classList.add("fill-" + div.getAttribute("data-fill"));
         });
 
         container.appendChild(div);
@@ -25,6 +31,7 @@ reset.addEventListener("click", () => {
 
     if(size != null) {
         let clampedSize = Math.min(size, 70);
+        clampedSize = Math.max(1, size);
 
         container.setAttribute("style",
          "grid-template-columns:repeat(" + clampedSize + ", 1fr); " +
@@ -38,10 +45,16 @@ reset.addEventListener("click", () => {
                 let div = document.createElement("div");
         
                 div.setAttribute("id", "block-" + idNum);
-                div.classList.add("div-block");
+                div.setAttribute("data-fill", 0);
+                div.classList.add("fill-0");
             
                 div.addEventListener("mouseenter", event => {
-                    event.target.classList.add("fill");
+
+                    let fillVal = div.getAttribute("data-fill");
+                    event.target.classList.remove("fill-" + fillVal)
+
+                    div.setAttribute("data-fill", Math.min(parseInt(fillVal) + 1, 5));
+                    event.target.classList.add("fill-" + div.getAttribute("data-fill"));
                 });
         
                 container.appendChild(div);
